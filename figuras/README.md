@@ -23,16 +23,16 @@ Para executar o programa devemos seguir os seguintes passos:
 
 1.	Primeiro, selecione o arquivo desejado e faça upload
 
-![screenshot](UploadArquivo.png)
+![screenshot](figuras/UploadArquivo.png)
 
 2.	Depois, vá na aba "Selecione Grau", escolha um grau na tabela e clique em "1 -Seleciona Grau" no lado direito da tela
 
-![screenshot](SelecioneGrau.png)
+![screenshot](figuras/SelecioneGrau.png)
 
 3.	Depois, vá na aba "Selecione Serventia", escolha uma serventia na tabela e clique em "2 -Seleciona Serventia" no lado direito da tela
 
-![screenshot](SelecioneServentia.png)
+![screenshot](figuras/SelecioneServentia.png)
 
 4.	Por fim, escolha o "Ponto de Corte" e "Agrupamentos" desejados no lado direito da tela e veja os resultados nas abas "Agrupamentos","Durações" e "Metas por Serventia"
 
-![screenshot](AnaliseGrupamentos.png)
+![screenshot](figuras/AnaliseGrupamentos.png)
