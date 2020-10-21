@@ -25,12 +25,12 @@ sidebarLayout(
   actionButton("do_grau", "2 Confirma grau"),
   actionButton("do_serventia", "4 Confirma serventia"),
   actionButton("do", "8 Análise de agrupamentos"),
-
+  
   sliderInput("corte", "Ponto de Corte",  
               min = 5, max = 30, value = 1),
   
   sliderInput("cluster", "Agrupamentos",  
-                  min = 2, max = 20, value = 1),
+                  min = 2, max = 15, value = 1),
   
  ),
  ),
@@ -45,7 +45,9 @@ sidebarLayout(
      tabPanel("10 Durações",plotOutput("plotresumoduracao1"),plotOutput("plotresumoduracao2"),plotOutput("plotresumoduracao3"),plotOutput("scatterplotdura"),DT::dataTableOutput("tabledura")),     
      tabPanel("11 Metas por serventias",plotlyOutput("plotmetas"),DT::dataTableOutput("tablemetas")),     
      tabPanel("12 Exporta CSV",downloadButton("downloadDataGlobal",label="Download")),
-     tabPanel("ReadMe",tags$iframe(src="readme.pdf", width="100%", height="600px"))
+     tabPanel("ReadMe",uiOutput("readme")),
+     tabPanel("Dados Abertos",uiOutput("tab")),
+     tabPanel("Informações",uiOutput("tab1"))
    )
  )
 )

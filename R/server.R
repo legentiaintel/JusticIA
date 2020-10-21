@@ -30,7 +30,7 @@ shinyServer(function(input, output) {
         output$plotprograu <- renderPlot({
           barplot(sort(table(grau),decreasing=T),col="black",ylab="Processos",main="Distribuição dos processos por grau")
         })
-        
+      
         # lista para seleção do grau
         saidagrau=data.frame(sort(table(grau),decreasing=T))
         colnames(saidagrau)=c("Grau","Número de processos")
@@ -56,6 +56,20 @@ shinyServer(function(input, output) {
         
       })
 
+      url <- a("Dados Abertos", href="http://trabdrupal.governancaegestao.wiki.br/")
+      output$tab <- renderUI({
+         tagList("URL link:", url)
+      })  
+      
+      url1 <- a("Informações", href="https://intellegentia.governancaegestao.wiki.br/")
+      output$tab1 <- renderUI({
+          tagList("URL link:", url1)
+      })  
+      
+      output$readme <- renderUI({
+        tags$iframe(src="readme.pdf",style="height:600px; width:100%")
+      })  
+      
       # filtra dados pelo grau selecionado
       observeEvent(input$do_grau, {
            listagrau=as.numeric(variavelgrauselecionado)
@@ -73,11 +87,14 @@ shinyServer(function(input, output) {
            }
            dadosf<<-dados[indice,] # dados filtrado pelo grau
            
+           # leitura de emails
+           emails<<-dadosf[,23]
+
            aux=paste(dadosf[,7],dadosf[,22]) # numero e nome da serventia
            resultado=table(aux)
            ordem=sort(as.numeric(resultado),decreasing=T,index.return=T)
            saida=data.frame(resultado[ordem$ix])
-           names(saida)=c("Serventia","Numero de Processos")
+           names(saida)=c("Serventia","Número de Processos")
            status=dadosf[,19]
            classe=dadosf[,3]
            assunto=dadosf[,4]
@@ -393,13 +410,17 @@ shinyServer(function(input, output) {
 
           # FAZ ANALISE DE CORRESPONDENCIA MULTIPLA E DEPOIS APLICA KMEANS          
           tabelao=cbind(classeresumo,assuntoresumo)
+          #inicolsup=1
+          #fimcolsup=dim(classeresumo)[2]
+          inicolsup=dim(classeresumo)[2]+1
+          fimcolsup=dim(assuntoresumo)[2]
           rotulo0=c()
           for (j in 1:dim(tabelao)[1]){
             rotulo0=c(rotulo0,strsplit(rownames(tabelao)[j]," ")[[1]][1])
           }
           #library(FactoMineR)
           #library(factoextra)
-          saida1=CA(tabelao,graph=F) # analise de correspondencia
+          saida1=CA(tabelao,graph=F,col.sup=inicolsup:fimcolsup) # analise de correspondencia
           # mapa das varas no plano fatorial
           coordenada=saida1$row$coord
           rownames(coordenada)=rotulo0
@@ -477,7 +498,7 @@ shinyServer(function(input, output) {
           output$plotresumoclasse3 <- renderPlot({
              proporcoes=100*prop.table(t(resumo),margin=2)
              colnames(proporcoes)=rownames(resumo)
-             barplot(proporcoes,xlab="clusters",ylab="%",main="Distribuicao das classes por clusters")
+             barplot(proporcoes,xlab="clusters",ylab="%",main="Distribuição das classes por clusters")
           })
 
           # tabela com os clusters das varas
@@ -493,10 +514,10 @@ shinyServer(function(input, output) {
             titulo=paste("Serventias no mapa gerado por Análise de Correspondência - inércia",round(sum(inercia[1:2])*100,0),"%")
             #plot(coordenada[,1],coordenada[,2],cex=1.2,pch=20,col="blue",main=titulo,xlab="dimensão 1",ylab="dimensão 2")
             base=coordenada[,1:2]
-            p.cluster<-fviz_cluster(list(data=base,cluster=rotulo),repel=T,palett="Dark2",
-                                    ggtheme = theme_minimal(), main = titulo, 
-                                    show.clust.cent = F)+labs(fill="Cluster")+guides(col=F, shape=F)
-            
+            #p.cluster<-fviz_cluster(list(data=base,cluster=rotulo),ellipse=T,repel=T,palett="Dark2",
+            #                        ggtheme = theme_minimal(), main = titulo, 
+            #                        show.clust.cent = F)+labs(fill="Cluster")+guides(col=F, shape=F)
+            p.cluster<-fviz_cluster(list(data=base,cluster=rotulo),ggtheme=theme_minimal(),main=titulo,palett="Dark2",xlab="dimensão 1",ylab="dimensão 2")
             plot(p.cluster)
             if (length(varaselec)==1){
               icoord=which(rownames(coordenada)==varaselec)
@@ -576,7 +597,7 @@ shinyServer(function(input, output) {
           })
           # tabela com as duracoes
           output$tabledura <- DT::renderDataTable({
-            tabeladura=round(resumodura,0)
+            tabeladura=data.frame(round(resumodura[,1],0),round(resumodura[,2],0),(round(resumodura[,1],0)+round(resumodura[,2],0)))
             colnames(tabeladura)=c("duração até o julgamento","duração até a baixa","Total (dias)")
             DT::datatable(tabeladura)
           })
@@ -598,9 +619,20 @@ shinyServer(function(input, output) {
           )
           
           # tabela com as metas
+          emailserventia=rep("NA",dim(metasserventias)[1])
+          for (i in 1:dim(metasserventias)[1]){
+               chave=as.numeric(strsplit(rownames(metasserventias)," ")[[i]][1])
+               posicao=which(as.numeric(dadosf[,7])==chave)
+               if (length(posicao)>0) {
+                  emailserventia[i]=emails[posicao[1]]
+               }
+          }
+          #print(emailserventia)
+          metasserventias=data.frame(round(metasserventias,0),emailserventia)
+          tabelametas=metasserventias
+          colnames(tabelametas)=c("duração até o julgamento","duração até a baixa","Total","Meta","emailserventia")
+          
           output$tablemetas <- DT::renderDataTable({
-            tabelametas=round(metasserventias,0)
-            colnames(tabelametas)=c("duração até o julgamento","duração até a baixa","Total","Meta")
             DT::datatable(tabelametas)
           })
 
@@ -634,7 +666,5 @@ shinyServer(function(input, output) {
                                   barmode='group')
             fig
           })
-                    
-          
       })
   })
