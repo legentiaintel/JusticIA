@@ -23,15 +23,15 @@ Para executar o programa devemos seguir os seguintes passos:
 
 1.	Primeiro, selecione o arquivo desejado e faça upload
 
-![screenshot](figuras/UploadArquivo.png)
+![screenshot](figuras/UploadArquivo1.png)
 
 2.	Depois, vá na aba "Selecione Grau", escolha um grau na tabela e clique em "1 -Seleciona Grau" no lado direito da tela
 
-![screenshot](figuras/SelecioneGrau.png)
+![screenshot](figuras/SelecioneGrau1.png)
 
 3.	Depois, vá na aba "Selecione Serventia", escolha uma serventia na tabela e clique em "2 -Seleciona Serventia" no lado direito da tela
 
-![screenshot](figuras/SelecioneServentia.png)
+![screenshot](figuras/SelecioneServentia1.png)
 
 4.  Nas abas "5 Status" e "6 Classes e Assuntos" são apresentadas as distribuições de frequencia dos processos por status e classe/assunto respectivamente
 
@@ -45,4 +45,4 @@ Para executar o programa devemos seguir os seguintes passos:
 
 9.  Vá na aba "12 Exporta CSV" para gerar um arquivo csv com as metas para as serventias
 
-![screenshot](figuras/AnaliseGrupamentos.png)
+![screenshot](figuras/AnaliseGrupamentos1.png)
