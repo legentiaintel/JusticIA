@@ -25,11 +25,11 @@ Para executar o programa devemos seguir os seguintes passos:
 
 ![screenshot](figuras/UploadArquivo1.png)
 
-2.	Depois, vá na aba "Selecione Grau", escolha um grau na tabela e clique em "1 -Seleciona Grau" no lado direito da tela
+2.	Depois, vá na aba "1 Selecione Grau", escolha um grau na tabela e clique em "2 Confirma Grau" no lado direito da tela
 
 ![screenshot](figuras/SelecioneGrau1.png)
 
-3.	Depois, vá na aba "Selecione Serventia", escolha uma serventia na tabela e clique em "2 -Seleciona Serventia" no lado direito da tela
+3.	Depois, vá na aba "3 Selecione Serventia", escolha uma serventia na tabela e clique em "4 Confirma Serventia" no lado direito da tela
 
 ![screenshot](figuras/SelecioneServentia1.png)
 
