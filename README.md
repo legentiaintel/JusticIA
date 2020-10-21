@@ -33,11 +33,14 @@ Para executar o programa devemos seguir os seguintes passos:
 
 ![screenshot](figuras/SelecioneServentia.png)
 
-4.      Nas abas "5 Status" e "6 Classes e Assuntos" são apresentadas as distribuições de frequencia dos processos por status e classe/assunto respectivamente
+4.      Nas abas "5 Status" e "6 Classes e Assuntos" são apresentadas as distribuições de frequencia dos processos por status e classe/assunto 
+respectivamente
 
-5.      Na barra de rolagem "Ponto de Corte" escolha a profundidade da comparação entre os perfis da serventia selecionada e das serventias do mesmo grau, por exemplo, 5 (Top 5) ou 10 (Top 10). O resultado aparece na aba "7 Perfis". O ponto de corte pode ser modificado a qualquer momento.
+5.      Na barra de rolagem "Ponto de Corte" escolha a profundidade da comparação entre os perfis da serventia selecionada e das serventias do
+mesmo grau, por exemplo, 5 (Top 5) ou 10 (Top 10). O resultado aparece na aba "7 Perfis". O ponto de corte pode ser modificado a qualquer momento.
 
-6.	Na barra de rolagem "Agrupamentos" escolha um número de agrupamentos (clusters) e na sequência pressione o botão "8 Análise de Agrupamentos". O número de agrupamentos pode ser modificado a qualquer momento.
+6.	Na barra de rolagem "Agrupamentos" escolha um número de agrupamentos (clusters) e na sequência pressione o botão "8 Análise de Agrupamentos". 
+O número de agrupamentos pode ser modificado a qualquer momento.
 
 7.      Os resultados da análise de agrupamentos são apresentados na aba "9 Agrupamentos"
 
@@ -46,5 +49,5 @@ Para executar o programa devemos seguir os seguintes passos:
 9.      Vá na aba "12 Exporta CSV" para gerar um arquivo csv com as metas para as serventias
 
 ![screenshot](figuras/AnaliseGrupamentos.png)
-![screenshot](figuras/AnaliseGrupamentos.png)
-.
+
+
