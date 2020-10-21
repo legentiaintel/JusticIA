@@ -1,5 +1,6 @@
 # Equipe Intellegentia (26)
 
+# JusticIA - Inteligência dos dados aplicada ao Direito e em benefício da Sociedade.
 
 O site do programa se encontra em [JusticIA](https://professorjfmp.shinyapps.io/Justicia/).
 
