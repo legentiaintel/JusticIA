@@ -6,7 +6,7 @@ O site do programa se encontra em [JusticIA](https://professorjfmp.shinyapps.io/
 
 Para prova de conceito neste desafio, foram escolhidos os processos de graus G1, G2, TR e JE do Tribunal Federal da Segunda Região (TRF2).
 
-O projeto foi dividido en três partes:
+O projeto foi dividido em três partes:
 1.	Carga de dados não estruturados fornecidos pelo CNJ no Atlas MongoDB na nuvem correspondentes ao Tribunal Federal da Segunda Região (TRF2);
 2.	Geração de arquivo DesafioCNJFinal.CSV cujas linhas correspondem aos processos e as colunas aos atributos filtrados da base fornecida, assim como a inclusão de atributos calculados (Programa escrito em Python que está no diretorio /python);
 3.	Interface web em R/Shiny que lê o arquivo DesafioCNJFinal.CSV, executa toda a Inteligência Computacional e apresenta os resultados gráficos e tabulares (Os programas desta parte foram escritos em R e estão no diretorio /R);.
