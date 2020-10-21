@@ -1,0 +1,6 @@
+
+BAIXAR O PROGRAMA MongoDB COMPASS
+ADMIN
+mongodb+srv://lege2020:lege2020@cluster0.ibgcj.mongodb.net/test?authSource=admin&replicaSet=atlas-14knzh-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true
+CONSULTA
+"mongodb+srv://lege2020:lege2020@cluster0.ibgcj.mongodb.net/test"
