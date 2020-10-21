@@ -1,0 +1,7 @@
+library(shiny)
+library(plotly)
+library(shinyWidgets)
+library(shinydashboard)
+library(shinyalert)
+library(FactoMineR)
+library(factoextra)
